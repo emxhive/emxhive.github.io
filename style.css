@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5%;
+}
+
+.container> div{
+  background-color: red;
+  
+}
+
+.container input {
+  width: 50%;
+}

@@ -48,15 +48,19 @@ header {
 .grid-input {
     width: 90%;
     padding: 20px;
-    margin: auto;
+    background-color: black;
     display: grid;
-    column-gap: 10%;
+    column-gap: 5%;
     grid-template-columns: 1fr 1fr;
+    
 }
 
 .grid-input>div {
-    background-color: #f4f5f0;
+    background-color: red;
     padding: 20px;
+}
+input{
+  width :10%;
 }
 
 
