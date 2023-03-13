@@ -25,7 +25,7 @@ header {
 }
 
 #result {
-    width: 50%;
+    width: 80%;
     border: 2px solid #f4f5f0;
     border-radius: 5px;
     background-color: #f4f5f0;
@@ -37,9 +37,9 @@ header {
 
 .result-item {
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     background-color: white;
-    padding:0;
+    padding: 0;
 }
 
 .result-item h5 {
@@ -50,6 +50,8 @@ header {
     min-width: 20%;
     
 }
+
+
 
 .grid-input {
     width: 90%;
@@ -62,7 +64,7 @@ header {
 
 .grid-input>div {
     background-color: #f4f5f0;
-    padding: 20px;
+    padding: 20px 10px;
     border-radius: 10px;
 }
 
@@ -98,18 +100,26 @@ input {
 @media only screen and (max-width: 600px) {
 
     .content {
-        padding: 10px;
+        padding: 20px 0;
     }
 
-    #result {
-        width: 80%;
-    }
-
-    .grid-input {
-        width: 100%;
+  .result-item span {
+    font-size: 1.5em;
+    font-family: 'Calibri' ;
+    display: block;
+    padding: 10px; 
     }
 
     .grid-input>div {
         padding: 5px;
+        padding-bottom: 20px;
     }
+    
+    
+input {
+    width: 40%;
+    padding: 10px 15px;
+    font-size: 1.2em;
+  }
+
 }

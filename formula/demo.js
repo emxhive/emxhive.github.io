@@ -63,13 +63,6 @@ function setVariables(i) {
 
 
 
-
-
-
-
-
-
-
 }
 
 
