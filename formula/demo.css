@@ -29,7 +29,7 @@ header {
     border: 2px solid #f4f5f0;
     border-radius: 5px;
     background-color: #f4f5f0;
-    padding: 20px;
+    padding: 10px;
     margin: auto;
 
 }
@@ -63,3 +63,9 @@ header {
 #left-box {}
 
 #right-box {}
+
+@media only screen and (max-width: 600px){
+  #result {
+    width: 80%;
+  }
+}
