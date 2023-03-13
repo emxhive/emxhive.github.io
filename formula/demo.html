@@ -1,71 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="demo.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="demo.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formula</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>DEMO</header>
     <div class="content">
-        <div id="result">
-            <h4>  <center> RESULTS</center>  </h4><br>
-            <div id="result-container">
-                <div class="result-item"><span>NetBuy=> </span> <span></span></div><br>
-                <div class="result-item"><span>NetSell=> </span> <span></span></div><br>
-                <div class="result-item"><span>S/B ratio=> </span> <span></span></div><br>
-                <div class="result-item"><span>Profit=> </span> <span></span></div>
-            </div>
+      <div id="result">
+        <h4><center>RESULTS</center></h4>
+        <br />
+        <div id="result-container">
+          <div class="result-item"><span>NetBuy=> </span> <span></span></div>
+          <br />
+          <div class="result-item"><span>NetSell=> </span> <span></span></div>
+          <br />
+          <div class="result-item"><span>S/B ratio=> </span> <span></span></div>
+          <br />
+          <div class="result-item"><span>Profit=> </span> <span></span></div>
+        </div>
+      </div>
+
+      <div class="grid-input">
+        <div id="left-box">
+          <h4><center>BUY</center></h4>
+
+          <div class="div-input">
+            <h4>PmF</h4>
+            <input type="text" id="PmF" name="paymentMethodFees" />
+          </div>
+
+          <div class="div-input">
+            <h4>PmF-%</h4>
+            <input type="text" id="PmF%" name="paymentMethodFees%" />
+          </div>
+
+          <div class="div-input">
+            <h4>BR</h4>
+            <input type="text" id="BR" name="buyRate" />
+          </div>
+
+          <div class="div-input">
+            <h4>BF</h4>
+            <input type="text" id="BF" name="BinanceFees" />
+          </div>
+
+          <div class="div-input">
+            <h4>SPOT</h4>
+            <input type="text" id="SPOT" name="Spot" />
+          </div>
         </div>
 
+        <div id="right-box">
+          <h4><center>SELL</center></h4>
 
-        <div class="grid-input">
-          
-            <div id="left-box">
-                <h4> <center>BUY</center></h4>
-                
-                  <div  class ="div-input">
-                    <h4>PmF</h4>
-                    <input type="text" id="PmF" name="paymentMethodFees">
-                  </div>
-                  
-                  <div  class ="div-input">
-                    <h4>PmF%</h4>
-                    <input type="text" id="PmF%" name="paymentMethodFees%">
-                  </div>
-                  
-                  <div  class ="div-input">
-                    <h4>BR</h4>
-                    <input type="text" id="BR" name="buyRate">
-                  </div>
-                  
-                  <div  class ="div-input">
-                    <h4>BF</h4>
-                    <input type="text" id="BF" name="BinanceFees">
-                    
-                    <div  class ="div-input">
-                      <h4>SPOT</h4>
-                      <input type="text" id="SPOT" name="Spot">
-                    </div>
-                  
-                
-            </div>
-            
-            <div id="right-box">
-                <h4><center>SELL </center></h4>
-                
-            </div>
+          <div class="div-input">
+            <h4>SR</h4>
+            <input type="text" id="BR" name="sellRate" />
+          </div>
+
+          <div class="div-input">
+            <h4>BF</h4>
+            <input type="text" id="BF" name="BinanceFees" />
+          </div>
+
         </div>
+      </div>
     </div>
 
-
-
     <script src="demo.js"></script>
-</body>
-
+  </body>
 </html>
