@@ -190,8 +190,8 @@ function runFormula() {
 
 
 
-        netBuyRate = totalUsd / results[2];
-        netSellRate = totalNgn / results[2];
+        netBuyRate = totalUsd / results[3];
+        netSellRate = totalNgn / results[3];
 
 
         finalRate = totalNgn / totalUsd;
