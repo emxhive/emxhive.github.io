@@ -1,40 +1,110 @@
+let attachedEvent = false;
+let amount = 1000;
+
+let buyRate = 0.988;
+let spotRate = 1;
+let sellRate = 740;
+
+let beforeFee = 0;
+let afterFee = 50;
+
+let beforeFeeP = 1.25;
+let afterFeeP = 0;
+
+let binBuyFeeP = 0.28;
+let binSellFeeP = 0.08;
+
+let run = true;
+
+let buyIsUsd = true;
+let sellIsUSd = false;
+
+let profit;
+let netBuyRate;
+let netSellRate;
+let finalRate;
+let valuesArr = [];
+let inputNodes;
+
+function setVariables(i) {
+
+    switch (i) {
+        case 0:
+            amount = valuesArr[0];
+            break;
+        case 1:
+            beforeFee = valuesArr[1];
+            break;
+        case 2:
+            beforeFeeP = valuesArr[2];
+            break;
+        case 3:
+            buyRate = valuesArr[3];
+            break;
+        case 4:
+            binBuyFeeP = valuesArr[4];
+            break;
+        case 5:
+            spotRate = valuesArr[5];
+            break;
+        case 6:
+            sellRate = valuesArr[6];
+            break;
+        case 7:
+            binSellFeeP = valuesArr[7];
+            break;
+        case 8:
+            afterFee = valuesArr[8];
+            break;
+        case 9:
+            afterFeeP = valuesArr[9];
+            break;
+    }
 
 
 
 
+
+
+
+
+
+
+}
 
 
 function runFormula() {
+    if (attachedEvent === false) {
 
-    let amount = 1000;
 
-    let buyRate = 0.988;
-    let sellRate = 740;
+        valuesArr = [amount, beforeFee, beforeFeeP, buyRate, binBuyFeeP,
+            spotRate, sellRate, binSellFeeP, afterFee, afterFeeP
+        ]
+        inputNodes = document.querySelectorAll("input[type='number']");
 
-    let beforeFee = 0;
-    let afterFee = 50;
+        inputNodes.forEach(function (inputNode, i) {
 
-    let beforeFeeP = 1.25;
-    let afterFeeP = 0;
+            inputNode.addEventListener("input", function (e) {
+                valuesArr[i] = Number(e.target.value);
+                setVariables(i);
+                runFormula();
 
-    let binBuyFeeP = 0.28;
-    let binSellFeeP = 0.08;
+            });
+            inputNode.value = valuesArr[i];
+        });
 
-    let run = true;
+    };
 
-    let buyIsUsd = true;
-    let sellIsUSd = false;
+    attachedEvent = true;
+    run = true;
 
-    let profit;
-    let netBuyRate;
-    let netSellRate;
-    let finalRate;
 
     function percent(p, n) {
         //p-percentage, n- number
 
         return (p / 100) * n;
     }
+
 
 
     //array of results
@@ -50,6 +120,8 @@ function runFormula() {
         fees.push(fee);
 
         let usd = amount - (beforeFee + fee);
+        let check = beforeFee + fee;
+
         results.push(usd);
 
     }
@@ -78,24 +150,32 @@ function runFormula() {
     const three = () => {
         let i = results.length - 1;
         let usdt = results[i];
-        let fee = percent(binSellFeeP, usdt);
 
-        usdt -= fee;
-        fees.push(fee);
-        results.push(usdt);
-
+        busd = usdt / spotRate;
+        results.push(busd);
     }
 
     const four = () => {
         let i = results.length - 1;
-        let usdt = results[i];
+        let busd = results[i];
+        let fee = percent(binSellFeeP, busd);
 
-        let ngn = usdt * sellRate;
-        results.push(ngn);
+        busd -= fee;
+        fees.push(fee);
+        results.push(busd);
 
     }
 
     const five = () => {
+        let i = results.length - 1;
+        let busd = results[i];
+
+        let ngn = busd * sellRate;
+        results.push(ngn);
+
+    }
+
+    const six = () => {
         // remove all after fees, percentage first, next second
         let i = results.length - 1;
         let ngn = results[i];
@@ -122,16 +202,32 @@ function runFormula() {
 
 
         finalRate = totalNgn / totalUsd;
+        // if (Math.trunc(buyRate).toString < 3) {
+        //     buyIsUsd = true;
+        // } else {
+        //     buyIsUsd = false;
+        // }
+        // if (Math.trunc(sellRate).toString.length < 3) {
+        //     sellIsUSd = true;
+        // } else {
+        //     sellIsUSd = false;
+        // }
+
+        buyIsUsd = (Math.trunc(buyRate).toString().length < 3 === true);
+        sellIsUSd = (Math.trunc(sellRate).toString().length < 3 === true);
+
+        console.log(buyIsUsd);
+        console.log(sellIsUSd);
 
 
-        let usdNgn = buyIsUsd === true && sellIsUSd === false;
-
+        let usdNgn = (buyIsUsd === true && sellIsUSd === false) || (buyIsUsd=== false && sellIsUSd===true) ;
+        console.log(usdNgn);
         switch (usdNgn) {
             case true:
-                profit = "NOT SAME CURRENCY!. FIGURE IT OUT YOURSELF!!";
+                profit = "Currency Mismatch!";
                 break;
             case false:
-                profit = totalUsd - totalNgn;
+                profit = totalNgn- totalUsd;
                 break;
         }
 
@@ -141,11 +237,8 @@ function runFormula() {
 
     //array of functions
     const arrFunctions = [
-        zero, one, two, three, four, five, last
+        zero, one, two, three, four, five, six, last
     ]
-
-
-
 
 
     let x = 0;
@@ -155,10 +248,10 @@ function runFormula() {
         x++;
     }
 
-    console.log(profit);
-    console.log("Finalrate=> " + finalRate);
-    console.log("netbuy => " + netBuyRate);
-    console.log("netsell => " + netSellRate);
+    // console.log("");
+    // console.log("");
+    // console.log("");
+    // console.log("");
 
 
     const resultValueDisplay = [netBuyRate, netSellRate, finalRate, profit];
@@ -173,12 +266,14 @@ function runFormula() {
         return div.children[1];
     });
 
-    for (let i=0; i<resultArr.length; i++ ){
-        resultElementDisplay[i].innerText= resultValueDisplay[i];
+    for (let i = 0; i < resultArr.length; i++) {
+        resultElementDisplay[i].innerText = resultValueDisplay[i];
     }
 
-    console.log(resultElementDisplay);
+
+
 
 }
+
 
 runFormula();

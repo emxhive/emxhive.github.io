@@ -13,15 +13,23 @@
     <div class="content">
       <div id="result">
         <h4><center>RESULTS</center></h4>
-        <br />
         <div id="result-container">
-          <div class="result-item"><span>NetBuy=> </span> <span></span></div>
-          <br />
-          <div class="result-item"><span>NetSell=> </span> <span></span></div>
-          <br />
-          <div class="result-item"><span>S/B ratio=> </span> <span></span></div>
-          <br />
-          <div class="result-item"><span>Profit=> </span> <span></span></div>
+          <div class="result-item">
+            <h5>NetBuy</h5>
+            <span></span>
+          </div>
+          <div class="result-item">
+            <h5>NetSell</h5>
+            <span></span>
+          </div>
+          <div class="result-item">
+            <h5>S/B ratio</h5>
+            <span></span>
+          </div>
+          <div class="result-item">
+            <h5>Profit</h5>
+            <span></span>
+          </div>
         </div>
       </div>
 
@@ -30,28 +38,28 @@
           <h4><center>BUY</center></h4>
 
           <div class="div-input">
+            <h6>AMOUNT</h6>
+            <input type="number" id="amount" name="Amount" />
+          </div>
+
+          <div class="div-input">
             <h4>PmF</h4>
-            <input type="text" id="PmF" name="paymentMethodFees" />
+            <input type="number" id="PmF" name="paymentMethodFees" />
           </div>
 
           <div class="div-input">
             <h4>%PmF</h4>
-            <input type="text" id="PmF%" name="paymentMethodFees%" />
+            <input type="number" id="PmF%" name="paymentMethodFees%" />
           </div>
 
           <div class="div-input">
             <h4>BR</h4>
-            <input type="text" id="BR" name="buyRate" />
+            <input type="number" id="BR" name="buyRate" />
           </div>
 
           <div class="div-input">
             <h4>BF</h4>
-            <input type="text" id="BF" name="BinanceFees" />
-          </div>
-
-          <div class="div-input">
-            <h4>SPOT</h4>
-            <input type="text" id="SPOT" name="Spot" />
+            <input type="number" id="BF" name="BinanceFees" />
           </div>
         </div>
 
@@ -59,15 +67,29 @@
           <h4><center>SELL</center></h4>
 
           <div class="div-input">
+            <h6>SPOT</h6>
+            <input type="number" id="SPOT" name="Spot" />
+          </div>
+
+          <div class="div-input">
             <h4>SR</h4>
-            <input type="text" id="BR" name="sellRate" />
+            <input type="number" id="BR" name="sellRate" />
           </div>
 
           <div class="div-input">
             <h4>BF</h4>
-            <input type="text" id="BF" name="BinanceFees" />
+            <input type="number" id="BF" name="BinanceFees" />
           </div>
 
+          <div class="div-input">
+            <h4>PmF</h4>
+            <input type="number" id="PmF" name="paymentMethodFees" />
+          </div>
+
+          <div class="div-input">
+            <h4>%PmF</h4>
+            <input type="number" id="PmF%" name="paymentMethodFees%" />
+          </div>
         </div>
       </div>
     </div>

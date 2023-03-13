@@ -37,8 +37,18 @@ header {
 
 .result-item {
     border-radius: 10px;
+    margin-top: 10px;
     background-color: white;
-    padding: 10px;
+    padding:0;
+}
+
+.result-item h5 {
+    margin: 0;
+    padding: 3px;
+    display: inline-block;
+    background-color: #f4f5f0;
+    min-width: 20%;
+    
 }
 
 .grid-input {
@@ -60,19 +70,21 @@ header {
     margin-top: 10px;
 }
 
-.div-input h4 {
+.div-input h4 , .div-input h6{
     display: inline-block;
     min-width: 23%;
-    padding: 5px;
     background-color: gray;
     color: beige;
     border-radius: 5px;
     text-align: center;
 }
+.div-input h6{
+   padding: 5px 0.5px; 
+}
 
 input {
     width: 50%;
-    padding: 6px 15px;
+    padding: 3px 15px;
     border: 1px solid grey;
     border-radius: 5px;
 }
