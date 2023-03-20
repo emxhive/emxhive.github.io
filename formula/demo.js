@@ -26,6 +26,39 @@ let finalRate;
 let valuesArr = [];
 let inputNodes;
 
+
+//for printing console log 
+function p(r) {
+    console.log(r);
+}
+
+function solveFormula(i) {
+    let numReg = /[\d.]+/g;
+    let symbReg = /[^.\w\s]/g;
+    const numArr = i.match(numReg);
+    const symbArr = i.match(symbReg);
+    let result;
+
+    if (numArr.length === 2 && symbArr.length === 1) {
+        switch (symbArr[0]) {
+            case "-":
+                result = parseInt(numArr[0]) - parseInt(numArr[1]);
+                break;
+            case "+":
+                result = parseInt(numArr[0]) + parseInt(numArr[1]);
+                break;
+            case "/":
+                result = parseInt(numArr[0]) / parseInt(numArr[1]);
+                break;
+            case "*":
+                result = parseInt(numArr[0]) * parseInt(numArr[1]);
+                break;
+
+        }
+    }
+    return result;
+}
+
 function setVariables(i) {
 
     switch (i) {
@@ -73,17 +106,33 @@ function runFormula() {
         valuesArr = [amount, beforeFee, beforeFeeP, buyRate, binBuyFeeP,
             spotRate, sellRate, binSellFeeP, afterFee, afterFeeP
         ]
-        inputNodes = document.querySelectorAll("input[type='number']");
+        inputNodes = document.querySelectorAll("input");
 
         inputNodes.forEach(function (inputNode, i) {
 
             inputNode.addEventListener("input", function (e) {
-                valuesArr[i] = Number(e.target.value);
+
+                if (isNaN(e.target.value)) {
+                    valuesArr[i] = solveFormula(e.target.value);
+                    if (isNaN(valuesArr[i])) {
+                        document.querySelector("#calc-result").textContent = "......."
+                    } else {
+                        document.querySelector("#calc-result").textContent = valuesArr[i].toFixed(8);
+                    }
+
+                    setTimeout(function () {
+                        document.querySelector("#calc-result").textContent = ".......";
+                    }, 5000);
+                } else {
+                    valuesArr[i] = Number(e.target.value);
+
+                }
                 setVariables(i);
                 runFormula();
 
             });
             inputNode.value = valuesArr[i];
+
         });
 
     };
@@ -209,18 +258,17 @@ function runFormula() {
         buyIsUsd = (Math.trunc(buyRate).toString().length < 3 === true);
         sellIsUSd = (Math.trunc(sellRate).toString().length < 3 === true);
 
-        console.log(buyIsUsd);
-        console.log(sellIsUSd);
 
 
-        let usdNgn = (buyIsUsd === true && sellIsUSd === false) || (buyIsUsd=== false && sellIsUSd===true) ;
-        console.log(usdNgn);
+
+        let usdNgn = (buyIsUsd === true && sellIsUSd === false) || (buyIsUsd === false && sellIsUSd === true);
         switch (usdNgn) {
             case true:
                 profit = "Currency Mismatch!";
                 break;
             case false:
-                profit = totalNgn- totalUsd;
+                profit = totalNgn - totalUsd;
+                profit = profit.toFixed(2) + "       ||    " + (((profit * 100) / amount).toFixed(1)) + "%";
                 break;
         }
 
@@ -241,10 +289,6 @@ function runFormula() {
         x++;
     }
 
-    // console.log("");
-    // console.log("");
-    // console.log("");
-    // console.log("");
 
 
     const resultValueDisplay = [netBuyRate, netSellRate, finalRate, profit];
