@@ -6,7 +6,7 @@ let spotRate = 1;
 let sellRate = 740;
 
 let beforeFee = 0;
-let afterFee = 50;
+let afterFee =  0;
 
 let beforeFeeP = 1.25;
 let afterFeeP = 0;
