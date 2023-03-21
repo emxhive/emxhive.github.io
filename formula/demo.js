@@ -40,18 +40,19 @@ function solveFormula(i) {
     let result;
 
     if (numArr.length === 2 && symbArr.length === 1) {
+      
         switch (symbArr[0]) {
             case "-":
-                result = parseInt(numArr[0]) - parseInt(numArr[1]);
+                result = Number(numArr[0]) - Number(numArr[1]);
                 break;
             case "+":
-                result = parseInt(numArr[0]) + parseInt(numArr[1]);
+                result = Number(numArr[0]) + Number(numArr[1]);
                 break;
             case "/":
-                result = parseInt(numArr[0]) / parseInt(numArr[1]);
+                result = Number(numArr[0]) / Number(numArr[1]);
                 break;
             case "*":
-                result = parseInt(numArr[0]) * parseInt(numArr[1]);
+                result = Number(numArr[0]) * Number(numArr[1]);
                 break;
 
         }
@@ -117,12 +118,12 @@ function runFormula() {
                     if (isNaN(valuesArr[i])) {
                         document.querySelector("#calc-result").textContent = "......."
                     } else {
-                        document.querySelector("#calc-result").textContent = valuesArr[i].toFixed(8);
+                        document.querySelector("#calc-result").textContent = valuesArr[i].toFixed(10);
                     }
 
                     setTimeout(function () {
                         document.querySelector("#calc-result").textContent = ".......";
-                    }, 5000);
+                    }, 10000);
                 } else {
                     valuesArr[i] = Number(e.target.value);
 
