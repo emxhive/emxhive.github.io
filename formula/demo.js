@@ -269,7 +269,7 @@ function runFormula() {
                 break;
             case false:
                 profit = totalNgn - totalUsd;
-                profit = profit.toFixed(2) + "       ||    " + (((profit * 100) / amount).toFixed(1)) + "%";
+                profit = `${profit.toFixed(2)}          ||        ${((profit * 100) / amount).toFixed(2)}%`;
                 break;
         }
 
