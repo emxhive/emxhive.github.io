@@ -52,13 +52,11 @@ header {
 }
 
 #calc-result{
-    padding: 10px;
-    font-size: 1.99em;
+    padding: 5px;
+    font-size: 1.95em;
     font-style: italic;
     color: gray;
 }
-
-
 
 .grid-input {
     width: 90%;
