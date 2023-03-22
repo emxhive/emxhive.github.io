@@ -107,12 +107,30 @@ input {
     .content {
         padding: 20px 0;
     }
+    
+    #result {
+      width: 70%;
+    }
+    
+    
+  .result-item {
+    width: 90%;
+}
 
-  .result-item span {
-    font-size: 1.5em;
+.result-item h5 {
+  padding: 9px 3px;
+  padding-top: 12px;
+}
+    
+
+.result-item span {
+    font-size: 1.2em;
     font-family: 'Calibri' ;
-    display: block;
-    padding: 10px; 
+    margin:  1.5px 0;
+    display: inline-block;
+    font-weight: 250;
+   
+   
     }
 
     .grid-input>div {
