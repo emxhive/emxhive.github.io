@@ -6,7 +6,7 @@ let spotRate = 1;
 let sellRate = 740;
 
 let beforeFee = 0;
-let afterFee =  0;
+let afterFee = 0;
 
 let beforeFeeP = 1.25;
 let afterFeeP = 0;
@@ -15,11 +15,14 @@ let binBuyFeeP = 0.28;
 let binSellFeeP = 0.08;
 
 let run = true;
+let smallScreen = false;
+const mediaChanges = window.matchMedia("(max-width: 650px)");
 
 let buyIsUsd = true;
 let sellIsUSd = false;
 
 let profit;
+let mismatchText= "Currency Mismatch!";
 let netBuyRate;
 let netSellRate;
 let finalRate;
@@ -32,6 +35,22 @@ function p(r) {
     console.log(r);
 }
 
+function changeDecimalPlaces() {
+    if (mediaChanges.matches) {
+        mismatchText= "mismatch!!"
+        smallScreen = true;
+        runFormula();
+    } else {
+        mismatchText= "Currency Mismatch!!"
+        smallScreen = false;
+        runFormula();
+    }
+
+}
+
+changeDecimalPlaces();
+mediaChanges.addEventListener("change", changeDecimalPlaces);
+
 function solveFormula(i) {
     let numReg = /[\d.]+/g;
     let symbReg = /[^.\w\s]/g;
@@ -40,7 +59,7 @@ function solveFormula(i) {
     let result;
 
     if (numArr.length === 2 && symbArr.length === 1) {
-      
+
         switch (symbArr[0]) {
             case "-":
                 result = Number(numArr[0]) - Number(numArr[1]);
@@ -101,6 +120,7 @@ function setVariables(i) {
 
 
 function runFormula() {
+
     if (attachedEvent === false) {
 
 
@@ -265,7 +285,7 @@ function runFormula() {
         let usdNgn = (buyIsUsd === true && sellIsUSd === false) || (buyIsUsd === false && sellIsUSd === true);
         switch (usdNgn) {
             case true:
-                profit = "Currency Mismatch!";
+                profit = mismatchText;
                 break;
             case false:
                 profit = totalNgn - totalUsd;
@@ -305,8 +325,16 @@ function runFormula() {
     });
 
     for (let i = 0; i < resultArr.length; i++) {
-        resultElementDisplay[i].innerText = resultValueDisplay[i];
+
+        //this if statement causes results to be roundoff to 8dp if the screen size isn't huge
+        if (smallScreen === true && i < 3) {
+            p("tryeme");
+            resultElementDisplay[i].innerText = resultValueDisplay[i].toFixed(6);
+        } else {
+            resultElementDisplay[i].innerText = resultValueDisplay[i];
+        }
     }
+
 
 
 
