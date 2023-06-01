@@ -1,108 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="demo.css" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formula</title>
-  </head>
 
-  <body>
-    <header>DEMO</header> 
-    <div class="content">
-      <div id="result">
-        <h4><center>RESULTS</center></h4>
-        <div id="result-container">
-          <div class="result-item">
-            <h5>NetBuy</h5>
-            <span></span>
-          </div>
-          <div class="result-item">
-            <h5>NetSell</h5>
-            <span></span>
-          </div>
-          <div class="result-item">
-            <h5> S/B rate</h5>
-            <span></span>
-          </div>
-          <div class="result-item">
-            <h5>Profit</h5>
-            <span></span>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="demo.css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formula</title>
+</head>
+
+<body>
+  <header>DEMO</header>
+
+  <div class="div-mode">
+    <span class="mode">
+
+      <label for="mode">EXC MODE</label>
+      <select name="mode" id="mode">
+
+        <optgroup label="US">
+          <option class= "option" value="ADV">Adv</option>
+          <option class= "option" value="PAY">Pay</option>
+          <option class= "option" value="AIR " disabled>Air</option>
+        </optgroup>
+
+
+        <optgroup label="NG">
+          <option class= "option" value="NG-NG">Ngn</option>
+        </optgroup>
+
+        <optgroup label="MX">
+          <option class= "option" value="US-NG">US-NG</option>
+          <option class= "option" value="WIZ-PAY">WIZ-PAY</option>
+          <option class= "option" value="WIZ-ADV">WIZ-ADV</option>
+          <option class= "option" value="AIR-PAY" disabled>AIR-PAY</option>
+        </optgroup>
+      </select>
+    </span>
+
+  </div>
+
+
+  <div class="content">
+    <div id="result">
+      <h4>
+        <center>RESULTS</center>
+      </h4>
+      <div id="result-container">
+        <div class="result-item">
+          <h5>NetBuy</h5>
+          <span></span>
         </div>
-      </div>
-
-      <br />
-      <br />
-      <hr />
-      <span> <center id="calc-result">......</center></span>
-      <hr />
-      <div class="grid-input">
-        <div id="left-box">
-          <br />
-          <h4><center>BUY</center></h4>
-
-          <div class="div-input">
-            <h6>AMOUNT</h6>
-            <input type="text" id="amount" name="Amount" />
-          </div>
-
-          <div class="div-input">
-            <h4>PmF</h4>
-            <input type="number" id="PmF" name="paymentMethodFees" />
-          </div>
-
-          <div class="div-input">
-            <h6>%PmF</h6>
-            <input type="number" id="PmF%" name="paymentMethodFees%" />
-          </div>
-
-          <div class="div-input">
-            <h4>BR</h4>
-            <input type="number" id="BR" name="buyRate" />
-          </div>
-
-          <div class="div-input">
-            <h6>%BF</h6>
-            <input type="number" id="BF" name="BinanceFees" />
-          </div>
+        <div class="result-item">
+          <h5>NetSell</h5>
+          <span></span>
         </div>
-
-        <div id="right-box">
-          <br />
-          <h4><center>SELL</center></h4>
-
-          <div class="div-input">
-            <h6>SPOT</h6>
-            <input type="text" id="SPOT" name="Spot" />
-          </div>
-
-          <div class="div-input">
-            <h4>SR</h4>
-            <input type="number" id="BR" name="sellRate" />
-          </div>
-
-          <div class="div-input">
-            <h6>%BF</h6>
-            <input type="number" id="BF" name="BinanceFees" />
-          </div>
-
-          <div class="div-input">
-            <h4>PmF</h4>
-            <input type="number" id="PmF" name="paymentMethodFees" />
-          </div>
-
-          <div class="div-input">
-            <h6>%PmF</h6>
-            <input type="number" id="PmF%" name="paymentMethodFees%" />
-          </div>
+        <div class="result-item">
+          <h5> S/B rate</h5>
+          <span></span>
+        </div>
+        <div class="result-item">
+          <h5>Profit</h5>
+          <span></span>
         </div>
       </div>
     </div>
-<footer>
-  
-</footer>
-    <script src="demo.js"></script>
-  </body>
+
+    <br />
+    <br />
+    <hr />
+    <span>
+      <center id="calc-result">......</center>
+    </span>
+    <hr />
+    <div class="grid-input">
+      <div id="left-box">
+        <br />
+        <h4>
+          <center>BUY</center>
+        </h4>
+
+        <div class="div-input">
+          <h6>AMOUNT</h6>
+          <input type="text" id="amount" name="Amount" />
+        </div>
+
+        <div class="div-input">
+          <h4>PmF</h4>
+          <input type="number" id="PmF" name="paymentMethodFees" />
+        </div>
+
+        <div class="div-input">
+          <h6>%PmF</h6>
+          <input type="number" id="PmF%" name="paymentMethodFees%" />
+        </div>
+
+        <div class="div-input">
+          <h4>BR</h4>
+          <input type="number" id="BR" name="buyRate" />
+        </div>
+
+        <div class="div-input">
+          <h6>%BF</h6>
+          <input type="number" id="BF" name="BinanceFees" />
+        </div>
+      </div>
+
+      <div id="right-box">
+        <br />
+        <h4>
+          <center>SELL</center>
+        </h4>
+
+        <div class="div-input">
+          <h6>SPOT</h6>
+          <input type="text" id="SPOT" name="Spot" />
+        </div>
+
+        <div class="div-input">
+          <h4>SR</h4>
+          <input type="number" id="BR" name="sellRate" />
+        </div>
+
+        <div class="div-input">
+          <h6>%BF</h6>
+          <input type="number" id="BF" name="BinanceFees" />
+        </div>
+
+        <div class="div-input">
+          <h4>PmF</h4>
+          <input type="number" id="PmF" name="paymentMethodFees" />
+        </div>
+
+        <div class="div-input">
+          <h6>%PmF</h6>
+          <input type="number" id="PmF%" name="paymentMethodFees%" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+
+  </footer>
+  <script src="demo.js"></script>
+</body>
+
 </html>

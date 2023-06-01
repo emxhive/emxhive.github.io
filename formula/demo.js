@@ -1,7 +1,7 @@
 let attachedEvent = false;
-let amount = 1000;
+let amount = 2000;
 
-let buyRate = 0.988;
+let buyRate = 0.986;
 let spotRate = 1;
 let sellRate = 740;
 
@@ -11,8 +11,8 @@ let afterFee = 0;
 let beforeFeeP = 1.25;
 let afterFeeP = 0;
 
-let binBuyFeeP = 0.28;
-let binSellFeeP = 0.08;
+let binBuyFeeP = 0.245;
+let binSellFeeP = 0.07;
 
 let run = true;
 let smallScreen = false;
@@ -22,12 +22,113 @@ let buyIsUsd = true;
 let sellIsUSd = false;
 
 let profit;
-let mismatchText= "Currency Mismatch!";
+let mismatchText = "Currency Mismatch!";
 let netBuyRate;
 let netSellRate;
 let finalRate;
 let valuesArr = [];
 let inputNodes;
+let modeNodes;
+
+
+
+function adv() {
+    let amount = 2000;
+
+    let buyRate = 1.001;
+    let spotRate = 1;
+    let sellRate = 1.008;
+
+    let beforeFee = 0;
+    let afterFee = 0;
+
+    let beforeFeeP = 0;
+    let afterFeeP = 0;
+
+    let binBuyFeeP = 0.245;
+    let binSellFeeP = 0.245;
+}
+
+
+function pay() {
+    let amount = 2000;
+
+    let buyRate = 1.010;
+    let spotRate = 1;
+    let sellRate = 1.022;
+
+    let beforeFee = 0;
+    let afterFee = 0;
+
+    let beforeFeeP = 0.5;
+    let afterFeeP = 0;
+
+    let binBuyFeeP = 0.245;
+    let binSellFeeP = 0.245;
+}
+
+function ng() {
+    let amount = 2500 * 740;
+
+    let buyRate = 740;
+    let spotRate = 1;
+    let sellRate = 743;
+
+    let beforeFee = 0;
+    let afterFee = 0;
+
+    let beforeFeeP = 0;
+    let afterFeeP = 0;
+
+    let binBuyFeeP = 0.07;
+    let binSellFeeP = 0.07;
+}
+
+function wizpay() {
+    let amount = 2000;
+
+    let buyRate = 1;
+    let spotRate = 1;
+    let sellRate = 1.022;
+
+    let beforeFee = 0;
+    let afterFee = 0;
+
+    let beforeFeeP = 0;
+    let afterFeeP = 0.5;
+
+    let binBuyFeeP = 0.245;
+    let binSellFeeP = 0.245;
+}
+function norm() { }
+
+function usng() {
+    let amount = 2000;
+
+    let buyRate = 0.986;
+    let spotRate = 1;
+    let sellRate = 740;
+
+    let beforeFee = 0;
+    let afterFee = 0;
+
+    let beforeFeeP = 1.25;
+    let afterFeeP = 0;
+
+    let binBuyFeeP = 0.245;
+    let binSellFeeP = 0.07;
+}
+
+function midDisplayValue(displayValue) {
+    document.querySelector("#calc-result").textContent = displayValue;
+}
+
+function midDisplayTimeout() {
+    setTimeout(function () {
+        document.querySelector("#calc-result").textContent = ".......";
+    }, 10000);
+
+}
 
 
 //for printing console log 
@@ -37,13 +138,13 @@ function p(r) {
 
 function changeDecimalPlaces() {
     if (mediaChanges.matches) {
-        mismatchText= "mismatch!!"
+        mismatchText = "mismatch!!"
         smallScreen = true;
-        runFormula();
+        runFormula(norm);
     } else {
-        mismatchText= "Currency Mismatch!!"
+        mismatchText = "Currency Mismatch!!"
         smallScreen = false;
-        runFormula();
+        runFormula(norm);
     }
 
 }
@@ -52,6 +153,9 @@ changeDecimalPlaces();
 mediaChanges.addEventListener("change", changeDecimalPlaces);
 
 function solveFormula(i) {
+
+    // this is for cases where the user types in more than just numbers... for calculations.
+    //ie. Instead of 1000, Types 10*10
     let numReg = /[\d.]+/g;
     let symbReg = /[^.\w\s]/g;
     const numArr = i.match(numReg);
@@ -119,15 +223,16 @@ function setVariables(i) {
 }
 
 
-function runFormula() {
+function runFormula(paraFunc) {
 
     if (attachedEvent === false) {
-
+        // This attaches the eventListeners to the input tags and modes. if they are not already attached
 
         valuesArr = [amount, beforeFee, beforeFeeP, buyRate, binBuyFeeP,
             spotRate, sellRate, binSellFeeP, afterFee, afterFeeP
         ]
         inputNodes = document.querySelectorAll("input");
+
 
         inputNodes.forEach(function (inputNode, i) {
 
@@ -136,24 +241,35 @@ function runFormula() {
                 if (isNaN(e.target.value)) {
                     valuesArr[i] = solveFormula(e.target.value);
                     if (isNaN(valuesArr[i])) {
-                        document.querySelector("#calc-result").textContent = "......."
+                        midDisplayValue(".......");
                     } else {
-                        document.querySelector("#calc-result").textContent = valuesArr[i].toFixed(10);
+                        midDisplayValue(valuesArr[i].toFixed(10));
                     }
 
-                    setTimeout(function () {
-                        document.querySelector("#calc-result").textContent = ".......";
-                    }, 10000);
+                    midDisplayTimeout();
                 } else {
                     valuesArr[i] = Number(e.target.value);
 
                 }
                 setVariables(i);
-                runFormula();
+                runFormula(norm);
 
             });
+
             inputNode.value = valuesArr[i];
 
+        });
+
+        modeNodes = document.querySelectorAll("option");
+        p(modeNodes);
+        modeNodes.forEach(function (modes, i) {
+            switch (i) {
+                case 0: modes.addEventListener("click", function () { p("it worked 1"); p(valuesArr); runFormula(adv); }); break;
+                case 1: modes.addEventListener("click", function () { runFormula(pay); }); break;
+                case 3: modes.addEventListener("click", function () { runFormula(ng); }); break;
+                case 4: modes.addEventListener("click", function () { runFormula(usng); }); break;
+                case 5: modes.addEventListener("click", function () { runFormula(wizpay); }); break;
+            }
         });
 
     };
@@ -161,6 +277,8 @@ function runFormula() {
     attachedEvent = true;
     run = true;
 
+    paraFunc();
+    assignInputNodes();
 
     function percent(p, n) {
         //p-percentage, n- number
@@ -342,4 +460,10 @@ function runFormula() {
 }
 
 
-runFormula();
+function assignInputNodes() {
+    inputNodes.forEach(function (nodes, i) {
+        nodes.value = valuesArr[i];
+    });
+}
+
+runFormula(usng);

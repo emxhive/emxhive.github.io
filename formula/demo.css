@@ -10,8 +10,18 @@ body {
     font-size: 0.9em;
 }
 
+.div-mode {
+    margin: 20px;
+    padding: 10px;
+}
 
-header, footer {
+.mode {
+    float: right;
+}
+
+
+header,
+footer {
     text-align: center;
     padding: 20px;
     background-color: beige;
@@ -48,10 +58,10 @@ header, footer {
     display: inline-block;
     background-color: #f4f5f0;
     min-width: 20%;
-    
+
 }
 
-#calc-result{
+#calc-result {
     padding: 5px;
     font-size: 1.95em;
     font-style: italic;
@@ -77,7 +87,8 @@ header, footer {
     margin-top: 10px;
 }
 
-.div-input h4 , .div-input h6{
+.div-input h4,
+.div-input h6 {
     display: inline-block;
     min-width: 23%;
     background-color: gray;
@@ -85,8 +96,9 @@ header, footer {
     border-radius: 5px;
     text-align: center;
 }
-.div-input h6{
-   padding: 5px 0.5px; 
+
+.div-input h6 {
+    padding: 5px 0.5px;
 }
 
 input {
@@ -107,42 +119,42 @@ input {
     .content {
         padding: 20px 0;
     }
-    
+
     #result {
-      width: 70%;
+        width: 70%;
     }
-    
-    
-  .result-item {
-    width: 90%;
-}
 
-.result-item h5 {
-  padding: 9px 3px;
-  padding-top: 12px;
-}
-    
 
-.result-item span {
-    font-size: 1.2em;
-    font-family: 'Calibri' ;
-    margin:  1.5px 0;
-    display: inline-block;
-    font-weight: 250;
-   
-   
+    .result-item {
+        width: 90%;
+    }
+
+    .result-item h5 {
+        padding: 9px 3px;
+        padding-top: 12px;
+    }
+
+
+    .result-item span {
+        font-size: 1.2em;
+        font-family: 'Calibri';
+        margin: 1.5px 0;
+        display: inline-block;
+        font-weight: 250;
+
+
     }
 
     .grid-input>div {
         padding: 5px;
         padding-bottom: 20px;
     }
-    
-    
-input {
-    width: 40%;
-    padding: 10px 15px;
-    font-size: 1.2em;
-  }
+
+
+    input {
+        width: 40%;
+        padding: 10px 15px;
+        font-size: 1.2em;
+    }
 
 }
