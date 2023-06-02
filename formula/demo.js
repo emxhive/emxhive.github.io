@@ -147,11 +147,6 @@ function midDisplayTimeout() {
     }, 10000);
 }
 
-//for printing console log
-function p(r) {
-    console.log(r);
-}
-
 function changeDecimalPlaces() {
     if (mediaChanges.matches) {
         mismatchText = "mismatch!!";
@@ -259,7 +254,7 @@ function runFormula(paraFunc) {
         });
 
         modeNodes = document.querySelectorAll("option");
-        p(modeNodes);
+        modeNodes[4].selected = true;
         modeNodes.forEach(function (modes, i) {
             switch (i) {
                 case 0:
@@ -297,7 +292,7 @@ function runFormula(paraFunc) {
     run = true;
 
     paraFunc?.();
-    
+
     assignInputNodes();
 
     function percent(p, n) {
@@ -461,3 +456,8 @@ function assignInputNodes() {
 }
 
 runFormula(usng);
+
+//for printing console log
+function p(r) {
+    console.log(r);
+}
