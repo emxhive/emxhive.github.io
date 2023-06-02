@@ -30,130 +30,144 @@ let valuesArr = [];
 let inputNodes;
 let modeNodes;
 
-
-
 function adv() {
-    let amount = 2000;
+    amount = 2000;
 
-    let buyRate = 1.001;
-    let spotRate = 1;
-    let sellRate = 1.008;
+    buyRate = 1.001;
+    spotRate = 1;
+    sellRate = 1.008;
 
-    let beforeFee = 0;
-    let afterFee = 0;
+    beforeFee = 0;
+    afterFee = 0;
 
-    let beforeFeeP = 0;
-    let afterFeeP = 0;
+    beforeFeeP = 0;
+    afterFeeP = 0;
 
-    let binBuyFeeP = 0.245;
-    let binSellFeeP = 0.245;
+    binBuyFeeP = 0.245;
+    binSellFeeP = 0.245;
+    setValueArr();
 }
 
-
 function pay() {
-    let amount = 2000;
+    amount = 2000;
 
-    let buyRate = 1.010;
-    let spotRate = 1;
-    let sellRate = 1.022;
+    buyRate = 1.01;
+    spotRate = 1;
+    sellRate = 1.022;
 
-    let beforeFee = 0;
-    let afterFee = 0;
+    beforeFee = 0;
+    afterFee = 0;
 
-    let beforeFeeP = 0.5;
-    let afterFeeP = 0;
+    beforeFeeP = 0.5;
+    afterFeeP = 0;
 
-    let binBuyFeeP = 0.245;
-    let binSellFeeP = 0.245;
+    binBuyFeeP = 0.245;
+    binSellFeeP = 0.245;
+    setValueArr();
 }
 
 function ng() {
-    let amount = 2500 * 740;
+    amount = 2500 * 740;
 
-    let buyRate = 740;
-    let spotRate = 1;
-    let sellRate = 743;
+    buyRate = 740;
+    spotRate = 1;
+    sellRate = 743;
 
-    let beforeFee = 0;
-    let afterFee = 0;
+    beforeFee = 0;
+    afterFee = 0;
 
-    let beforeFeeP = 0;
-    let afterFeeP = 0;
+    beforeFeeP = 0;
+    afterFeeP = 0;
 
-    let binBuyFeeP = 0.07;
-    let binSellFeeP = 0.07;
+    binBuyFeeP = 0.07;
+    binSellFeeP = 0.07;
+
+    setValueArr();
 }
 
 function wizpay() {
-    let amount = 2000;
+    amount = 2000;
 
-    let buyRate = 1;
-    let spotRate = 1;
-    let sellRate = 1.022;
+    buyRate = 1;
+    spotRate = 1;
+    sellRate = 1.022;
 
-    let beforeFee = 0;
-    let afterFee = 0;
+    beforeFee = 0;
+    afterFee = 0;
 
-    let beforeFeeP = 0;
-    let afterFeeP = 0.5;
+    beforeFeeP = 0;
+    afterFeeP = 0.5;
 
-    let binBuyFeeP = 0.245;
-    let binSellFeeP = 0.245;
+    binBuyFeeP = 0.245;
+    binSellFeeP = 0.245;
+    setValueArr();
 }
-function norm() { }
 
 function usng() {
-    let amount = 2000;
+    amount = 2000;
 
-    let buyRate = 0.986;
-    let spotRate = 1;
-    let sellRate = 740;
+    buyRate = 0.986;
+    spotRate = 1;
+    sellRate = 740;
 
-    let beforeFee = 0;
-    let afterFee = 0;
+    beforeFee = 0;
+    afterFee = 0;
 
-    let beforeFeeP = 1.25;
-    let afterFeeP = 0;
+    beforeFeeP = 1.25;
+    afterFeeP = 0;
 
-    let binBuyFeeP = 0.245;
-    let binSellFeeP = 0.07;
+    binBuyFeeP = 0.245;
+    binSellFeeP = 0.07;
+
+    setValueArr();
 }
 
 function midDisplayValue(displayValue) {
     document.querySelector("#calc-result").textContent = displayValue;
 }
 
+function setValueArr() {
+    valuesArr = [
+        amount,
+        beforeFee,
+        beforeFeeP,
+        buyRate,
+        binBuyFeeP,
+        spotRate,
+        sellRate,
+        binSellFeeP,
+        afterFee,
+        afterFeeP,
+    ];
+}
+
 function midDisplayTimeout() {
     setTimeout(function () {
         document.querySelector("#calc-result").textContent = ".......";
     }, 10000);
-
 }
 
-
-//for printing console log 
+//for printing console log
 function p(r) {
     console.log(r);
 }
 
 function changeDecimalPlaces() {
     if (mediaChanges.matches) {
-        mismatchText = "mismatch!!"
+        mismatchText = "mismatch!!";
         smallScreen = true;
-        runFormula(norm);
+        runFormula();
     } else {
-        mismatchText = "Currency Mismatch!!"
+        mismatchText = "Currency Mismatch!!";
         smallScreen = false;
-        runFormula(norm);
+        runFormula();
     }
-
 }
 
 changeDecimalPlaces();
 mediaChanges.addEventListener("change", changeDecimalPlaces);
 
 function solveFormula(i) {
-
     // this is for cases where the user types in more than just numbers... for calculations.
     //ie. Instead of 1000, Types 10*10
     let numReg = /[\d.]+/g;
@@ -163,7 +177,6 @@ function solveFormula(i) {
     let result;
 
     if (numArr.length === 2 && symbArr.length === 1) {
-
         switch (symbArr[0]) {
             case "-":
                 result = Number(numArr[0]) - Number(numArr[1]);
@@ -177,14 +190,12 @@ function solveFormula(i) {
             case "*":
                 result = Number(numArr[0]) * Number(numArr[1]);
                 break;
-
         }
     }
     return result;
 }
 
 function setVariables(i) {
-
     switch (i) {
         case 0:
             amount = valuesArr[0];
@@ -217,27 +228,17 @@ function setVariables(i) {
             afterFeeP = valuesArr[9];
             break;
     }
-
-
-
 }
 
-
 function runFormula(paraFunc) {
-
     if (attachedEvent === false) {
         // This attaches the eventListeners to the input tags and modes. if they are not already attached
 
-        valuesArr = [amount, beforeFee, beforeFeeP, buyRate, binBuyFeeP,
-            spotRate, sellRate, binSellFeeP, afterFee, afterFeeP
-        ]
+        setValueArr();
         inputNodes = document.querySelectorAll("input");
 
-
         inputNodes.forEach(function (inputNode, i) {
-
             inputNode.addEventListener("input", function (e) {
-
                 if (isNaN(e.target.value)) {
                     valuesArr[i] = solveFormula(e.target.value);
                     if (isNaN(valuesArr[i])) {
@@ -249,35 +250,54 @@ function runFormula(paraFunc) {
                     midDisplayTimeout();
                 } else {
                     valuesArr[i] = Number(e.target.value);
-
                 }
                 setVariables(i);
-                runFormula(norm);
-
+                runFormula();
             });
 
             inputNode.value = valuesArr[i];
-
         });
 
         modeNodes = document.querySelectorAll("option");
         p(modeNodes);
         modeNodes.forEach(function (modes, i) {
             switch (i) {
-                case 0: modes.addEventListener("click", function () { p("it worked 1"); p(valuesArr); runFormula(adv); }); break;
-                case 1: modes.addEventListener("click", function () { runFormula(pay); }); break;
-                case 3: modes.addEventListener("click", function () { runFormula(ng); }); break;
-                case 4: modes.addEventListener("click", function () { runFormula(usng); }); break;
-                case 5: modes.addEventListener("click", function () { runFormula(wizpay); }); break;
+                case 0:
+                    modes.addEventListener("click", function () {
+                        p("it worked 1");
+                        p(valuesArr);
+                        runFormula(adv);
+                    });
+                    break;
+                case 1:
+                    modes.addEventListener("click", function () {
+                        runFormula(pay);
+                    });
+                    break;
+                case 3:
+                    modes.addEventListener("click", function () {
+                        runFormula(ng);
+                    });
+                    break;
+                case 4:
+                    modes.addEventListener("click", function () {
+                        runFormula(usng);
+                    });
+                    break;
+                case 5:
+                    modes.addEventListener("click", function () {
+                        runFormula(wizpay);
+                    });
+                    break;
             }
         });
-
-    };
+    }
 
     attachedEvent = true;
     run = true;
 
-    paraFunc();
+    paraFunc?.();
+    
     assignInputNodes();
 
     function percent(p, n) {
@@ -286,12 +306,9 @@ function runFormula(paraFunc) {
         return (p / 100) * n;
     }
 
-
-
     //array of results
     const results = [];
     const fees = [beforeFee];
-
 
     //mathematical sequence
 
@@ -304,8 +321,7 @@ function runFormula(paraFunc) {
         let check = beforeFee + fee;
 
         results.push(usd);
-
-    }
+    };
 
     const one = () => {
         let i = results.length - 1;
@@ -313,20 +329,17 @@ function runFormula(paraFunc) {
 
         let usdt = usd / buyRate;
         results.push(usdt);
-
-    }
+    };
 
     const two = () => {
         let i = results.length - 1;
         let usdt = results[i];
         let fee = percent(binBuyFeeP, usdt);
 
-
         usdt -= fee;
         fees.push(fee);
         results.push(usdt);
-
-    }
+    };
 
     const three = () => {
         let i = results.length - 1;
@@ -334,7 +347,7 @@ function runFormula(paraFunc) {
 
         busd = usdt / spotRate;
         results.push(busd);
-    }
+    };
 
     const four = () => {
         let i = results.length - 1;
@@ -344,8 +357,7 @@ function runFormula(paraFunc) {
         busd -= fee;
         fees.push(fee);
         results.push(busd);
-
-    }
+    };
 
     const five = () => {
         let i = results.length - 1;
@@ -353,8 +365,7 @@ function runFormula(paraFunc) {
 
         let ngn = busd * sellRate;
         results.push(ngn);
-
-    }
+    };
 
     const six = () => {
         // remove all after fees, percentage first, next second
@@ -365,10 +376,9 @@ function runFormula(paraFunc) {
         fees.push(fee);
         fees.push(afterFee);
 
-        ngn -= (afterFee + fee);
+        ngn -= afterFee + fee;
         results.push(ngn);
-
-    }
+    };
 
     const last = () => {
         // produces results for display
@@ -376,11 +386,8 @@ function runFormula(paraFunc) {
         let totalUsd = amount;
         let totalNgn = results[results.length - 1];
 
-
-
         netBuyRate = totalUsd / results[3];
         netSellRate = totalNgn / results[3];
-
 
         finalRate = totalNgn / totalUsd;
         // if (Math.trunc(buyRate).toString < 3) {
@@ -394,32 +401,28 @@ function runFormula(paraFunc) {
         //     sellIsUSd = false;
         // }
 
-        buyIsUsd = (Math.trunc(buyRate).toString().length < 3 === true);
-        sellIsUSd = (Math.trunc(sellRate).toString().length < 3 === true);
+        buyIsUsd = Math.trunc(buyRate).toString().length < 3 === true;
+        sellIsUSd = Math.trunc(sellRate).toString().length < 3 === true;
 
-
-
-
-        let usdNgn = (buyIsUsd === true && sellIsUSd === false) || (buyIsUsd === false && sellIsUSd === true);
+        let usdNgn =
+            (buyIsUsd === true && sellIsUSd === false) ||
+            (buyIsUsd === false && sellIsUSd === true);
         switch (usdNgn) {
             case true:
                 profit = mismatchText;
                 break;
             case false:
                 profit = totalNgn - totalUsd;
-                profit = `${profit.toFixed(2)}          ||        ${((profit * 100) / amount).toFixed(2)}%`;
+                profit = `${profit.toFixed(2)}          ||        ${(
+                    (profit * 100) /
+                    amount
+                ).toFixed(2)}%`;
                 break;
         }
-
-    }
-
-
+    };
 
     //array of functions
-    const arrFunctions = [
-        zero, one, two, three, four, five, six, last
-    ]
-
+    const arrFunctions = [zero, one, two, three, four, five, six, last];
 
     let x = 0;
 
@@ -427,8 +430,6 @@ function runFormula(paraFunc) {
         arrFunctions[x]();
         x++;
     }
-
-
 
     const resultValueDisplay = [netBuyRate, netSellRate, finalRate, profit];
     const resultNodes = document.querySelectorAll(".result-item");
@@ -443,7 +444,6 @@ function runFormula(paraFunc) {
     });
 
     for (let i = 0; i < resultArr.length; i++) {
-
         //this if statement causes results to be roundoff to 8dp if the screen size isn't huge
         if (smallScreen === true && i < 3) {
             p("tryeme");
@@ -452,13 +452,7 @@ function runFormula(paraFunc) {
             resultElementDisplay[i].innerText = resultValueDisplay[i];
         }
     }
-
-
-
-
-
 }
-
 
 function assignInputNodes() {
     inputNodes.forEach(function (nodes, i) {
