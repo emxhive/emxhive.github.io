@@ -62,8 +62,8 @@ footer {
 }
 
 #calc-result {
-    padding: 5px;
-    font-size: 1.95em;
+    padding: 3px;
+    font-size: 1.9em;
     font-style: italic;
     color: gray;
 }
@@ -79,7 +79,7 @@ footer {
 
 .grid-input>div {
     background-color: #f4f5f0;
-    padding: 20px 10px;
+    padding: 9px 10px;
     border-radius: 10px;
 }
 

@@ -28,7 +28,7 @@ let netSellRate;
 let finalRate;
 let valuesArr = [];
 let inputNodes;
-let modeNodes;
+let mode;
 
 function adv() {
     amount = 2000;
@@ -46,6 +46,8 @@ function adv() {
     binBuyFeeP = 0.245;
     binSellFeeP = 0.245;
     setValueArr();
+    assignInputNodes();
+
 }
 
 function pay() {
@@ -64,6 +66,7 @@ function pay() {
     binBuyFeeP = 0.245;
     binSellFeeP = 0.245;
     setValueArr();
+    assignInputNodes();
 }
 
 function ng() {
@@ -83,6 +86,7 @@ function ng() {
     binSellFeeP = 0.07;
 
     setValueArr();
+    assignInputNodes();
 }
 
 function wizpay() {
@@ -101,6 +105,7 @@ function wizpay() {
     binBuyFeeP = 0.245;
     binSellFeeP = 0.245;
     setValueArr();
+    assignInputNodes();
 }
 
 function usng() {
@@ -120,6 +125,7 @@ function usng() {
     binSellFeeP = 0.07;
 
     setValueArr();
+    assignInputNodes();
 }
 
 function midDisplayValue(displayValue) {
@@ -187,6 +193,7 @@ function solveFormula(i) {
                 break;
         }
     }
+    p(result);
     return result;
 }
 
@@ -226,10 +233,11 @@ function setVariables(i) {
 }
 
 function runFormula(paraFunc) {
+    setValueArr();
+
     if (attachedEvent === false) {
         // This attaches the eventListeners to the input tags and modes. if they are not already attached
 
-        setValueArr();
         inputNodes = document.querySelectorAll("input");
 
         inputNodes.forEach(function (inputNode, i) {
@@ -253,53 +261,32 @@ function runFormula(paraFunc) {
             inputNode.value = valuesArr[i];
         });
 
-        modeNodes = document.querySelectorAll("option");
-        modeNodes[4].selected = true;
-        modeNodes.forEach(function (modes, i) {
-            switch (i) {
-                case 0:
-                    modes.addEventListener("click", function () {
-                        p("it worked 1");
-                        p(valuesArr);
-                        runFormula(adv);
-                    });
+        mode = document.querySelector("select");
+        document.querySelector("#defaultOption").selected = true;
+        mode.addEventListener("change", function () {
+
+            switch (Number(this.value)) {
+                case 1: runFormula(adv);
                     break;
-                case 1:
-                    modes.addEventListener("click", function () {
-                        runFormula(pay);
-                    });
+                case 2: runFormula(pay);
                     break;
-                case 3:
-                    modes.addEventListener("click", function () {
-                        runFormula(ng);
-                    });
+                case 4: runFormula(ng);
                     break;
-                case 4:
-                    modes.addEventListener("click", function () {
-                        runFormula(usng);
-                    });
+                case 5: runFormula(usng);
                     break;
-                case 5:
-                    modes.addEventListener("click", function () {
-                        runFormula(wizpay);
-                    });
+                case 6: runFormula(wizpay);
                     break;
+
             }
         });
+
+
     }
 
     attachedEvent = true;
     run = true;
 
     paraFunc?.();
-
-    assignInputNodes();
-
-    function percent(p, n) {
-        //p-percentage, n- number
-
-        return (p / 100) * n;
-    }
 
     //array of results
     const results = [];
@@ -385,16 +372,6 @@ function runFormula(paraFunc) {
         netSellRate = totalNgn / results[3];
 
         finalRate = totalNgn / totalUsd;
-        // if (Math.trunc(buyRate).toString < 3) {
-        //     buyIsUsd = true;
-        // } else {
-        //     buyIsUsd = false;
-        // }
-        // if (Math.trunc(sellRate).toString.length < 3) {
-        //     sellIsUSd = true;
-        // } else {
-        //     sellIsUSd = false;
-        // }
 
         buyIsUsd = Math.trunc(buyRate).toString().length < 3 === true;
         sellIsUSd = Math.trunc(sellRate).toString().length < 3 === true;
@@ -441,7 +418,6 @@ function runFormula(paraFunc) {
     for (let i = 0; i < resultArr.length; i++) {
         //this if statement causes results to be roundoff to 8dp if the screen size isn't huge
         if (smallScreen === true && i < 3) {
-            p("tryeme");
             resultElementDisplay[i].innerText = resultValueDisplay[i].toFixed(6);
         } else {
             resultElementDisplay[i].innerText = resultValueDisplay[i];
@@ -450,14 +426,20 @@ function runFormula(paraFunc) {
 }
 
 function assignInputNodes() {
+    setValueArr();
     inputNodes.forEach(function (nodes, i) {
         nodes.value = valuesArr[i];
     });
 }
 
-runFormula(usng);
+runFormula();
 
 //for printing console log
 function p(r) {
     console.log(r);
+}
+function percent(p, n) {
+    //p-percentage, n- number
+
+    return (p / 100) * n;
 }
