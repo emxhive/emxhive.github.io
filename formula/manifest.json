@@ -1,7 +1,22 @@
 {
-    "short-name" : "Formulae",
-    "name" : "Formulae By MX",
-    "icons": ""
-
-
+    "short-name": "Formulae",
+    "name": "Formulae By MX",
+    "icons": [
+        {
+            "src": "img/icon-192.png",
+            "type": "image/png",
+            "size": "192x192"
+        },
+        {
+            "src": "img/icon-512.png",
+            "type": "image/png",
+            "size": "512x512"
+        }
+    ],
+    "id": "demo.html",
+    "start_url": "demo.html",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "description": "Calculate without calculating",
 }
