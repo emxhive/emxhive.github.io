@@ -13,8 +13,8 @@
             "size": "512x512"
         }
     ],
-    "id": "https://emxhive.github.io/demo",
-    "start_url": "https://emxhive.github.io/demo",
+    "id": "https://emxhive.github.io",
+    "start_url": "https://emxhive.github.io",
     "background_color": "#3367D6",
     "display": "standalone",
     "scope": "/",
