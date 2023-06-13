@@ -13,10 +13,10 @@
             "size": "512x512"
         }
     ],
-    "id": "demo.html",
-    "start_url": "demo.html",
+    "id": "https://emxhive.github.io/demo",
+    "start_url": "https://emxhive.github.io/demo",
     "background_color": "#3367D6",
     "display": "standalone",
     "scope": "/",
-    "description": "Calculate without calculating",
+    "description": "Calculate without calculating"
 }
