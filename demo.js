@@ -21,7 +21,8 @@ const mediaChanges = window.matchMedia("(max-width: 650px)");
 let buyIsUsd = true;
 let sellIsUSd = false;
 
-let profit;
+let income;
+let incomeString;
 let mismatchText = "Currency Mismatch!";
 let netBuyRate;
 let netSellRate;
@@ -123,6 +124,26 @@ function usng() {
 
     binBuyFeeP = 0.245;
     binSellFeeP = 0.07;
+
+    setValueArr();
+    assignInputNodes();
+}
+
+function air() {
+    amount = 2000;
+
+    buyRate = 0.986;
+    spotRate = 1;
+    sellRate = 1.007;
+
+    beforeFee = 0;
+    afterFee = 0;
+
+    beforeFeeP = 1.25;
+    afterFeeP = 0;
+
+    binBuyFeeP = 0.245;
+    binSellFeeP = 0;
 
     setValueArr();
     assignInputNodes();
@@ -270,6 +291,8 @@ function runFormula(paraFunc) {
                     break;
                 case 2: runFormula(pay);
                     break;
+                case 3: runFormula(air);
+                    break;
                 case 4: runFormula(ng);
                     break;
                 case 5: runFormula(usng);
@@ -381,12 +404,14 @@ function runFormula(paraFunc) {
             (buyIsUsd === false && sellIsUSd === true);
         switch (usdNgn) {
             case true:
-                profit = mismatchText;
+                incomeString = mismatchText;
                 break;
             case false:
-                profit = totalNgn - totalUsd;
-                profit = `${profit.toFixed(2)}          ||        ${(
-                    (profit * 100) /
+                income = totalNgn - totalUsd;
+                midDisplayValue(income);
+                midDisplayTimeout();
+                incomeString = `${income.toFixed(4)}          ||        ${(
+                    (income * 100) /
                     amount
                 ).toFixed(2)}%`;
                 break;
@@ -403,7 +428,7 @@ function runFormula(paraFunc) {
         x++;
     }
 
-    const resultValueDisplay = [netBuyRate, netSellRate, finalRate, profit];
+    const resultValueDisplay = [netBuyRate, netSellRate, finalRate, incomeString];
     const resultNodes = document.querySelectorAll(".result-item");
     const resultArr = [];
 
