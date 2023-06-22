@@ -6,16 +6,10 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
- html {
-  min-height: 100vh;
-  height: -webkit-fill-available;
-} 
 
 body {
   font-weight: 200;
   font-size: 0.9em;
-  min-height: 100vh; 
-  height: -webkit-fill-available;
 }
 
 .div-mode {
@@ -79,7 +73,7 @@ footer {
   grid-template-columns: 1fr 1fr;
 }
 
-.grid-input > div {
+.grid-input>div {
   background-color: #f4f5f0;
   padding: 9px 10px;
   border-radius: 10px;
@@ -110,11 +104,9 @@ input {
   border-radius: 5px;
 }
 
-#left-box {
-}
+#left-box {}
 
-#right-box {
-}
+#right-box {}
 
 @media only screen and (max-width: 600px) {
   .content {
@@ -142,7 +134,7 @@ input {
     font-weight: 250;
   }
 
-  .grid-input > div {
+  .grid-input>div {
     padding: 5px;
     padding-bottom: 20px;
   }
@@ -151,5 +143,31 @@ input {
     width: 40%;
     padding: 10px 15px;
     font-size: 1.2em;
+  }
+
+
+  @media only screen and (min-width : 601px) and (max-width:1600px) and (min-height: 600px) {
+
+
+    #result {
+      width: 50%;
+    }
+
+    body {
+      font-size: 1.3em;
+    }
+
+    .grid-input {
+      width: 70%;
+      column-gap: 10%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    input {
+      width: 50%;
+      padding: 10px 15px;
+    }
+
   }
 }
