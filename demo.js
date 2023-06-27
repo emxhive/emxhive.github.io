@@ -1,4 +1,4 @@
-document.querySelector('header').textContent=('DEMO ('+ window.innerWidth + ' x '+ window.innerHeight);
+document.querySelector('header').textContent=('DEMO! ('+ window.innerWidth + ' x '+ window.innerHeight);
 
 
 let attachedEvent = false;
