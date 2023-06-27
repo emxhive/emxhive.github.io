@@ -1,3 +1,6 @@
+document.querySelector('header').textContent=('DEMO ('+ window.innerWidth + ' x '+ window.innerHeight);
+
+
 let attachedEvent = false;
 let amount = 2000;
 
