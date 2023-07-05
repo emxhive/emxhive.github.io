@@ -4,7 +4,7 @@ document.querySelector("#header").textContent='DEMO! ('+ window.innerWidth + ' x
 let attachedEvent = false;
 let amount = 2000;
 
-let buyRate = 0.986;
+let buyRate = 0.991;
 let spotRate = 1;
 let sellRate = 740;
 
@@ -14,8 +14,8 @@ let afterFee = 0;
 let beforeFeeP = 1.25;
 let afterFeeP = 0;
 
-let binBuyFeeP = 0.245;
-let binSellFeeP = 0.07;
+let binBuyFeeP = 0.28;
+let binSellFeeP = 0.08;
 
 let run = true;
 let smallScreen = false;
@@ -47,8 +47,8 @@ function adv() {
     beforeFeeP = 0;
     afterFeeP = 0;
 
-    binBuyFeeP = 0.245;
-    binSellFeeP = 0.245;
+    binBuyFeeP = 0.28;
+    binSellFeeP = 0.28;
     setValueArr();
     assignInputNodes();
 
@@ -67,8 +67,8 @@ function pay() {
     beforeFeeP = 0.5;
     afterFeeP = 0;
 
-    binBuyFeeP = 0.245;
-    binSellFeeP = 0.245;
+    binBuyFeeP = 0.28;
+    binSellFeeP = 0.28;
     setValueArr();
     assignInputNodes();
 }
@@ -86,8 +86,8 @@ function ng() {
     beforeFeeP = 0;
     afterFeeP = 0;
 
-    binBuyFeeP = 0.07;
-    binSellFeeP = 0.07;
+    binBuyFeeP = 0.08;
+    binSellFeeP = 0.08;
 
     setValueArr();
     assignInputNodes();
@@ -106,8 +106,8 @@ function wizpay() {
     beforeFeeP = 0;
     afterFeeP = 0.5;
 
-    binBuyFeeP = 0.245;
-    binSellFeeP = 0.245;
+    binBuyFeeP = 0.28;
+    binSellFeeP = 0.28;
     setValueArr();
     assignInputNodes();
 }
@@ -115,7 +115,7 @@ function wizpay() {
 function usng() {
     amount = 2000;
 
-    buyRate = 0.986;
+    buyRate = 0.991;
     spotRate = 1;
     sellRate = 740;
 
@@ -125,8 +125,8 @@ function usng() {
     beforeFeeP = 1.25;
     afterFeeP = 0;
 
-    binBuyFeeP = 0.245;
-    binSellFeeP = 0.07;
+    binBuyFeeP = 0.28;
+    binSellFeeP = 0.08;
 
     setValueArr();
     assignInputNodes();
@@ -135,7 +135,7 @@ function usng() {
 function air() {
     amount = 2000;
 
-    buyRate = 0.986;
+    buyRate = 0.991;
     spotRate = 1;
     sellRate = 1.007;
 
@@ -145,7 +145,7 @@ function air() {
     beforeFeeP = 1.25;
     afterFeeP = 0;
 
-    binBuyFeeP = 0.245;
+    binBuyFeeP = 0.28;
     binSellFeeP = 0;
 
     setValueArr();
