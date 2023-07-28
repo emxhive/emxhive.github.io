@@ -73,6 +73,25 @@ function pay() {
     assignInputNodes();
 }
 
+function perfect() {
+    amount = 1000;
+
+    buyRate = 1.016;
+    spotRate = 1;
+    sellRate = 1.030;
+
+    beforeFee = 0;
+    afterFee = 0;
+
+    beforeFeeP = 0.5;
+    afterFeeP = 0;
+
+    binBuyFeeP = 0.28;
+    binSellFeeP = 0.28;
+    setValueArr();
+    assignInputNodes();
+}
+
 function ng() {
     amount = 2500 * 740;
 
@@ -294,13 +313,15 @@ function runFormula(paraFunc) {
                     break;
                 case 2: runFormula(pay);
                     break;
-                case 3: runFormula(air);
+                case 3: runFormula(perfect);
                     break;
-                case 4: runFormula(ng);
+                case 4: runFormula(air);
                     break;
-                case 5: runFormula(usng);
+                case 5: runFormula(ng);
                     break;
-                case 6: runFormula(wizpay);
+                case 6: runFormula(usng);
+                    break;
+                case 7: runFormula(wizpay);
                     break;
 
             }
