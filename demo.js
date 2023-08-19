@@ -6,7 +6,7 @@ let amount = 2000;
 
 let buyRate = 0.991;
 let spotRate = 1;
-let sellRate = 740;
+let sellRate = 830;
 
 let beforeFee = 0;
 let afterFee = 0;
@@ -15,7 +15,7 @@ let beforeFeeP = 1.25;
 let afterFeeP = 0;
 
 let binBuyFeeP = 0.28;
-let binSellFeeP = 0.08;
+let binSellFeeP = 0.20;
 
 let run = true;
 let smallScreen = false;
@@ -37,9 +37,9 @@ let mode;
 function adv() {
     amount = 2000;
 
-    buyRate = 1.001;
+    buyRate = 0.998;
     spotRate = 1;
-    sellRate = 1.008;
+    sellRate = 1.005;
 
     beforeFee = 0;
     afterFee = 0;
@@ -93,9 +93,9 @@ function perfect() {
 }
 
 function ng() {
-    amount = 2500 * 740;
+    amount = 2500 * 830;
 
-    buyRate = 740;
+    buyRate = 830;
     spotRate = 1;
     sellRate = 743;
 
@@ -105,8 +105,8 @@ function ng() {
     beforeFeeP = 0;
     afterFeeP = 0;
 
-    binBuyFeeP = 0.08;
-    binSellFeeP = 0.08;
+    binBuyFeeP = 0.20;
+    binSellFeeP = 0.20;
 
     setValueArr();
     assignInputNodes();
@@ -136,7 +136,7 @@ function usng() {
 
     buyRate = 0.991;
     spotRate = 1;
-    sellRate = 740;
+    sellRate = 830;
 
     beforeFee = 0;
     afterFee = 0;
@@ -145,7 +145,7 @@ function usng() {
     afterFeeP = 0;
 
     binBuyFeeP = 0.28;
-    binSellFeeP = 0.08;
+    binSellFeeP = 0.20;
 
     setValueArr();
     assignInputNodes();
