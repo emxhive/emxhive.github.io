@@ -6,7 +6,7 @@ let amount = 2000;
 
 let buyRate = 0.991;
 let spotRate = 1;
-let sellRate = 830;
+let sellRate = 920;
 
 let beforeFee = 0;
 let afterFee = 0;
@@ -93,9 +93,9 @@ function perfect() {
 }
 
 function ng() {
-    amount = 2500 * 830;
+    amount = 2500 * 920;
 
-    buyRate = 830;
+    buyRate = 920;
     spotRate = 1;
     sellRate = 743;
 
@@ -136,7 +136,7 @@ function usng() {
 
     buyRate = 0.991;
     spotRate = 1;
-    sellRate = 830;
+    sellRate = 920;
 
     beforeFee = 0;
     afterFee = 0;
