@@ -97,7 +97,7 @@ function ng() {
 
     buyRate = 920;
     spotRate = 1;
-    sellRate = 743;
+    sellRate = 930;
 
     beforeFee = 0;
     afterFee = 0;
@@ -136,7 +136,7 @@ function usng() {
 
     buyRate = 0.991;
     spotRate = 1;
-    sellRate = 920;
+    sellRate = 930;
 
     beforeFee = 0;
     afterFee = 0;
