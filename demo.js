@@ -6,7 +6,7 @@ let amount = 2000;
 
 let buyRate = 0.991;
 let spotRate = 1;
-let sellRate = 920;
+let sellRate = 948;
 
 let beforeFee = 0;
 let afterFee = 0;
@@ -15,7 +15,7 @@ let beforeFeeP = 1.25;
 let afterFeeP = 0;
 
 let binBuyFeeP = 0.28;
-let binSellFeeP = 0.20;
+let binSellFeeP = 0.16;
 
 let run = true;
 let smallScreen = false;
@@ -97,7 +97,7 @@ function ng() {
 
     buyRate = 920;
     spotRate = 1;
-    sellRate = 930;
+    sellRate = 948;
 
     beforeFee = 0;
     afterFee = 0;
@@ -105,8 +105,8 @@ function ng() {
     beforeFeeP = 0;
     afterFeeP = 0;
 
-    binBuyFeeP = 0.20;
-    binSellFeeP = 0.20;
+    binBuyFeeP = 0.16;
+    binSellFeeP = 0.16;
 
     setValueArr();
     assignInputNodes();
@@ -136,7 +136,7 @@ function usng() {
 
     buyRate = 0.991;
     spotRate = 1;
-    sellRate = 930;
+    sellRate = 948;
 
     beforeFee = 0;
     afterFee = 0;
@@ -145,7 +145,7 @@ function usng() {
     afterFeeP = 0;
 
     binBuyFeeP = 0.28;
-    binSellFeeP = 0.20;
+    binSellFeeP = 0.16;
 
     setValueArr();
     assignInputNodes();
