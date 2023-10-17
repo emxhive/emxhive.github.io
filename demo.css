@@ -107,7 +107,7 @@ input {
 #left-box {}
 
 #right-box {}
-
+/* 
 @media only screen and (max-width: 600px) {
   .content {
     padding: 20px 0;
@@ -170,4 +170,4 @@ input {
     }
 
   }
-}
+} */
